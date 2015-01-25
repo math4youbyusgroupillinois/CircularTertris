@@ -3,6 +3,6 @@ using System.Collections;
 
 public class BlockScript : MonoBehaviour {
 
-	int gridPosX, gridPosY;
-	float worldPosX, worldPosY;
+	public int gridPosX, gridPosY;
+	//public float worldPosX, worldPosY;
 }

@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408322}
-  - 114: {fileID: 11408324}
   - 114: {fileID: 11408322}
   m_Layer: 0
   m_Name: Tet6Prefab
@@ -40,20 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809ab8534d8a2eb4688f9c8b8b589431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 0}
-  blocks: []
---- !u!114 &11408324
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af22ff6bd707e434e81195bbd3981d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 0}
+  blockPrefab: {fileID: 109492, guid: 1e3b0326a014dc542a22beb1bbdd4494, type: 2}
   blocks: []
 --- !u!1001 &100100000
 Prefab:

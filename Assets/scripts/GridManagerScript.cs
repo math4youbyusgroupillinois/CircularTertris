@@ -7,15 +7,16 @@ public class GridManagerScript : MonoBehaviour {
 	rightLTet, backwardLTet, rightZTet, backwardZTet;
 
 
-	GameObject [][] grid = new GameObject[24][];
+	GameObject [][] grid = new GameObject[12][];
 	public List <GameObject> sandbox = new List<GameObject>();
 	//make tetriminoCatalog array of possible tetriminos 
 	public List <GameObject> tetCatalog = new List<GameObject>();
 
-	//instantiate
+	private int snapsPer360 = 12;
+	private int heightOfWorld = 20;
 
 	void Start() {
-
+		//add all types of tetrimenos to the catalog
 		tetCatalog.Add(squareTet);
 		tetCatalog.Add(lineTet);
 		tetCatalog.Add(hillTet);
@@ -36,7 +37,8 @@ public class GridManagerScript : MonoBehaviour {
 	private void SpawnTetrimino() {
 		//instantiate the randomly selected prefab
 		GameObject randomTetrimino = getRandomTet ();
-		Instantiate (randomTetrimino, Vector3.zero, Quaternion.identity);
+		Instantiate (randomTetrimino, getRandomSpawnTransform().position, getRandomSpawnTransform().rotation);
+		//ßsandbox.Add (newTetrimeno);
 	}
 
 	//a getRandomTet funciton that returns a random prefab(tet)
@@ -48,4 +50,19 @@ public class GridManagerScript : MonoBehaviour {
 		return Random.Range(0, upperBound);		
 	}
 
+	private Transform getRandomSpawnTransform(){
+		Transform dummyTransform = new GameObject().transform;
+		dummyTransform.position = Vector3.zero + new Vector3(0, heightOfWorld, 0); //lift the object up
+		dummyTransform.RotateAround(Vector3.zero, Vector3.forward, getRandomSnappedAngle() );   //rotate it around the world
+		Debug.Log ("spawned new tetrimeno at " + dummyTransform.position.x + ", " + dummyTransform.position.y);
+		return dummyTransform;
+	}
+	private float getRandomSnappedAngle (){
+		return getSnappedAngle( Random.Range(0, 360), snapsPer360);
+	}
+
+    private float getSnappedAngle( float angle, float snapAtEveryNumDegrees){
+		Debug.Log("Making a random snapped angle " + Mathf.Floor (angle / snapAtEveryNumDegrees) * snapAtEveryNumDegrees);
+		return Mathf.Floor (angle / snapAtEveryNumDegrees) * snapAtEveryNumDegrees;
+	}
 }
