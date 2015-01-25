@@ -13,7 +13,7 @@ public class GridManagerScript : MonoBehaviour {
 	public List <GameObject> tetCatalog = new List<GameObject>();
 
 	private int snapsPer360 = 12;
-	private int heightOfWorld = 20;
+	private int heightOfWorld = 5;
 
 	void Start() {
 		//add all types of tetrimenos to the catalog
@@ -26,7 +26,7 @@ public class GridManagerScript : MonoBehaviour {
 		tetCatalog.Add(backwardZTet);
 
 		// every 5 seconds, make a new tetrimino 
-		InvokeRepeating("SpawnTetrimino",0, 5.0f);
+		InvokeRepeating("SpawnTetrimino",0, 0.5f);
 	}
 
 	void Update() {
@@ -37,7 +37,8 @@ public class GridManagerScript : MonoBehaviour {
 	private void SpawnTetrimino() {
 		//instantiate the randomly selected prefab
 		GameObject randomTetrimino = getRandomTet ();
-		Instantiate (randomTetrimino, getRandomSpawnTransform().position, getRandomSpawnTransform().rotation);
+		Transform randomTransform = getRandomSpawnTransform ();
+		Instantiate (randomTetrimino, randomTransform.position, randomTransform.rotation);
 		//ßsandbox.Add (newTetrimeno);
 	}
 
