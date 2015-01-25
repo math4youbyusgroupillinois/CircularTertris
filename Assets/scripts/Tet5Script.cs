@@ -7,7 +7,7 @@ public class Tet5Script : MonoBehaviour {
 	public GameObject blockPrefab;
 	public List <GameObject> blocks = new List<GameObject>();
 	
-	void Start () {
+/*	void Start () {
 		
 		GameObject newBlock1 = (Instantiate (blockPrefab, transform.position + new Vector3 (0,0), Quaternion.identity)) as GameObject;
 		blocks.Add (newBlock1);
@@ -19,4 +19,5 @@ public class Tet5Script : MonoBehaviour {
 		blocks.Add (newBlock4);
 		
 	}
+*/
 }
