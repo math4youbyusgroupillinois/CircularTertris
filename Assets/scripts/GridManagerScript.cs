@@ -45,6 +45,7 @@ public class GridManagerScript : MonoBehaviour {
 	//a getRandomTet funciton that returns a random prefab(tet)
 	private GameObject getRandomTet() {
 		return tetCatalog[Random.Range(0, tetCatalog.Count - 1)];
+	//	return tetCatalog [1];
 	}
 
 	private int getRandomInt (int upperBound) {
