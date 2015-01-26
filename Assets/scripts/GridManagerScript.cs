@@ -8,7 +8,7 @@ public class GridManagerScript : MonoBehaviour {
 
 
 	GameObject [][] grid = new GameObject[12][];
-	public List <ITetrimeno> sandbox = new List<ITetrimeno>();
+	public List <GameObject> sandbox = new List<GameObject>();
 	//make tetriminoCatalog array of possible tetriminos 
 	public List <GameObject> tetCatalog = new List<GameObject>();
 
@@ -26,7 +26,7 @@ public class GridManagerScript : MonoBehaviour {
 		tetCatalog.Add(backwardZTet);
 
 		// every 5 seconds, make a new tetrimino 
-		InvokeRepeating("SpawnTetrimino",0, 0.5f);
+		InvokeRepeating("SpawnTetromino",0, 0.5f);
 	}
 
 	void Update() {
@@ -34,12 +34,12 @@ public class GridManagerScript : MonoBehaviour {
 		// every second each block moves down 1 unit
 	}
 
-	private void SpawnTetrimino() {
+	private void SpawnTetromino() {
 		//instantiate the randomly selected prefab
-		GameObject randomTetrimino = getRandomTet ();
+		GameObject randomTetromino = getRandomTet ();
 		Transform randomTransform = getRandomSpawnTransform ();
-		GameObject newTetrimeno = Instantiate (randomTetrimino, randomTransform.position, randomTransform.rotation);
-		sandbox.Add (newTetrimeno.GetComponent<TetrimenoBehavior>() );
+		GameObject newTetromino = Instantiate (randomTetromino, randomTransform.position, randomTransform.rotation) as GameObject;
+		sandbox.Add (newTetromino);
 	}
 
 	//a getRandomTet funciton that returns a random prefab(tet)
@@ -56,7 +56,7 @@ public class GridManagerScript : MonoBehaviour {
 		Transform dummyTransform = new GameObject().transform;
 		dummyTransform.position = Vector3.zero + new Vector3(0, heightOfWorld, 0); //lift the object up
 		dummyTransform.RotateAround(Vector3.zero, Vector3.forward, getRandomSnappedAngle() );   //rotate it around the world
-		Debug.Log ("spawned new tetrimeno at " + dummyTransform.position.x + ", " + dummyTransform.position.y);
+		Debug.Log ("spawned new tetrimino at " + dummyTransform.position.x + ", " + dummyTransform.position.y);
 		return dummyTransform;
 	}
 	private float getRandomSnappedAngle (){

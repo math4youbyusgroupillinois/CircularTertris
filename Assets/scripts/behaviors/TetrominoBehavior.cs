@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TetrimenoBehavior : MonoBehaviour, ITetrimeno {
+public class TetrominoBehavior : MonoBehaviour, ITetromino {
 
 	// Use this for initialization
 	void Start () {
@@ -11,5 +11,14 @@ public class TetrimenoBehavior : MonoBehaviour, ITetrimeno {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void Drop(){
+	}
+
+	public void Delete(){
+	}
+
+	public void Rotate(){
 	}
 }
