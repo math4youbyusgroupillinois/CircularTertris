@@ -8,7 +8,7 @@ public class GridManagerScript : MonoBehaviour {
 
 
 	GameObject [][] grid = new GameObject[12][];
-	public List <GameObject> sandbox = new List<GameObject>();
+	public List <ITetrimeno> sandbox = new List<ITetrimeno>();
 	//make tetriminoCatalog array of possible tetriminos 
 	public List <GameObject> tetCatalog = new List<GameObject>();
 
@@ -38,8 +38,8 @@ public class GridManagerScript : MonoBehaviour {
 		//instantiate the randomly selected prefab
 		GameObject randomTetrimino = getRandomTet ();
 		Transform randomTransform = getRandomSpawnTransform ();
-		Instantiate (randomTetrimino, randomTransform.position, randomTransform.rotation);
-		//ßsandbox.Add (newTetrimeno);
+		GameObject newTetrimeno = Instantiate (randomTetrimino, randomTransform.position, randomTransform.rotation);
+		sandbox.Add (newTetrimeno.GetComponent<TetrimenoBehavior>() );
 	}
 
 	//a getRandomTet funciton that returns a random prefab(tet)

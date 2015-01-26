@@ -23,4 +23,5 @@ public class Tet1Script : MonoBehaviour {
 		blocks.Add (newBlock4);
 		*/
 	}
+	
 }
